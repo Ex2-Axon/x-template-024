@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0F;
+  --color-surface: #1E202C;
+  --color-primary: #7B3FEF;
+  --color-accent: #40FFC0;
+  --color-text: #F0F0F5;
+  --color-muted: #7E828A;
+
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #7B3FEF, 0 0 20px #7B3FEF, 0 0 30px #40FFC0;
+    }
+    to {
+      text-shadow: 0 0 20px #7B3FEF, 0 0 30px #40FFC0, 0 0 40px #40FFC0;
+    }
+  }
+}
+
+:root {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-orbitron);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
