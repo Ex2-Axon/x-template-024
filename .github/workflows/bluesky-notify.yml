@@ -1,6 +1,9 @@
 name: Bluesky Release Post
 
 on:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
   push:
     branches:
       - main
@@ -9,11 +12,14 @@ on:
 jobs:
   post-bluesky:
     name: Post to Bluesky
-    runs-on: ubuntu-latest
+    runs-on:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -94,7 +100,10 @@ jobs:
 
             const payload = {
               repo: process.env.DID,
-              collection: 'app.bsky.feed.post',
+              collection:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' 'app.bsky.feed.post',
               record: {
                 \$type: 'app.bsky.feed.post',
                 text: text,
@@ -112,7 +121,10 @@ jobs:
           # ── Step 4: Post ──
           RESPONSE=$(curl -s -X POST "https://bsky.social/xrpc/com.atproto.repo.createRecord" \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $ACCESS_JWT" \
+            -H "Authorization:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' Bearer $ACCESS_JWT" \
             -d @/tmp/bsky_payload.json)
 
           echo "Response: $RESPONSE"

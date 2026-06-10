@@ -1,6 +1,9 @@
 name: Discord Release Notify
 
 on:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
   push:
     branches:
       - main
@@ -9,11 +12,14 @@ on:
 jobs:
   notify:
     name: Send Discord Notification
-    runs-on: ubuntu-latest
+    runs-on:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2  # need previous commit for diff
 
